@@ -31,4 +31,23 @@ TODO
 
 ## Solution Stages
 ###### _Not all diffs are created equal._
-TODO
+You are **strongly** encouraged to implement the program
+in increasing levels of functionality and sophistication.
+
+The `tests/` directory assumes the following suggestion:
+
+### Stage-0
+Check files for strict equality. Meaning _any_ difference
+is considered a negative, and _no_ difference - a positive.
+#### Suggested output:
+"`Files are identical.`" or "`Files are different.`"
+
+### Stage-1
+Count the number of non-identical lines. For each line,
+compare only its counterpart (so don't take added or deleted
+lines into account).
+#### Suggested output:
+"`Files are identical.`", "`1 line differs.`", or "`15 lines differ.`"
+
+### Stage-2
+
