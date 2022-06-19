@@ -78,4 +78,10 @@ lines into account).
 "`Files are identical.`", "`1 line differs.`", or "`15 lines differ.`"
 
 ### Stage-2
+Print the lines of each file that differ. If one file is
+longer than the other, also show the extra lines.
+#### Suggested output:
+`Left  3: hello`  
+`Right 3: hi`  
+`Right 4: there`
 
