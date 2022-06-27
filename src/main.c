@@ -16,3 +16,18 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+void readFile(const char *arg, FileContents arg1)
+{
+    
+}
+
+Comparison compareContents(FileContents arg, FileContents arg1)
+{
+    return true;
+}
+
+void displayResult(Comparison result)
+{
+
+}
