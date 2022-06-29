@@ -14,7 +14,7 @@ def get_test_files(dir):
     right = []
     out   = []
 
-    for file in os.listdir(dir):
+    for file in sorted(os.listdir(dir)):
         (
                  left  if 'in.left'  in file
             else right if 'in.right' in file
@@ -22,10 +22,14 @@ def get_test_files(dir):
             else None  # Error
         ).append(file)
 
+    if (len(left) != len(right) != len(out)):
+        print("[ERROR] Unequal number of left/right/out files.")
+        exit(1)
+
     return left, right, out
 
 
-def run_test(dir, left, right):
+def run_test(dir, left, right, id):
     process = subprocess.run( [ EXECUTABLE,
                                 os.path.join(dir, left),
                                 os.path.join(dir, right)
@@ -47,7 +51,7 @@ def check_output(dir, out, id, actual):
         if actual == expected:
             print(f"[{id} PASS]")
         else:
-            print(f"[{id} FAIL]  Expected output:", expected,
+            print(f"[{id} FAIL] Expected output:", expected,
                   f"[{id} fail] Actual output:", actual, sep='\n')
 
 
@@ -56,12 +60,8 @@ def main(args):
 
     left_files, right_files, out_files = get_test_files(test_dir)
 
-    if (len(left_files) != len(right_files) != len(out_files)):
-        print("[ERROR] Unequal number of left/right/out files.")
-        exit(1)
-
     for id in range(len(out_files)):
-        actual = run_test(test_dir, left_files[id], right_files[id])
+        actual = run_test(test_dir, left_files[id], right_files[id], id)
         if not actual:
             continue
 
