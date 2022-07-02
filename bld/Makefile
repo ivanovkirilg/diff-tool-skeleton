@@ -1,6 +1,8 @@
 include_dir = ../include
 src_dir = ../src
 
+CC = gcc
+
 ifeq ($(OS),Windows_NT)
 	TARGET = difftool.exe
 	REMOVE = del
