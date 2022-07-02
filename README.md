@@ -46,7 +46,7 @@ gave exactly the expected output, or otherwise `[id FAIL]` and both the
 expected and actual output received from the program._
 
 **Run the script** with
-  - `.\run_tests.py 0` on Windows, or
+  - `python .\run_tests.py 0` on Windows, or
   - `./run_tests.py 0` on Linux.
 
 _**Note**: the script expects to be run from the project's root directory
