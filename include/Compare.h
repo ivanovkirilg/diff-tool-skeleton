@@ -1,8 +1,12 @@
 #ifndef CODE_ACADEMY_DIFF_TOOL_COMPARE_H
 #define CODE_ACADEMY_DIFF_TOOL_COMPARE_H
 
-#include "Types.h"
+#include <stdbool.h>
 
-Comparison compareContents(FileContents leftFile, FileContents rightFile);
+#include "FileHandler.h"
+
+typedef bool Comparison;
+
+Comparison compareContents(const FileContents leftFile, const FileContents rightFile);
 
 #endif // CODE_ACADEMY_DIFF_TOOL_COMPARE_H
