@@ -2,13 +2,22 @@
 #include "FileHandler.h"
 #include "UI.h"
 
+
+struct Args
+{
+    const char *leftFilePath;
+    const char *rightFilePath;
+};
+
+struct Args parseArguments(int argc, char *argv[]);
+
+
 int main(int argc, char *argv[])
 {
-    FileContents leftFile;
-    FileContents rightFile;
+    struct Args args = parseArguments(argc, argv);
 
-    readFile(argv[1], leftFile);
-    readFile(argv[2], rightFile);
+    FileContents leftFile = readFile(args.leftFilePath);
+    FileContents rightFile = readFile(args.leftFilePath);
 
     Comparison result = compareContents(leftFile, rightFile);
 
