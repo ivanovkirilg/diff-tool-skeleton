@@ -41,7 +41,7 @@ def run_test(dir, left, right, id):
         print(f"[{id} FAIL] Program returned non-zero exit code.")
         return False
     else:
-        return process.stdout.decode('utf-8')
+        return process.stdout.decode('utf-8').replace('\r', '')
 
 
 def check_output(dir, out, id, actual):
